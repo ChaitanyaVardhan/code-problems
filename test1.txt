@@ -1,0 +1,12 @@
+5
+abrac
+acada
+adabr
+dabra
+racad
+
+abrac
+   acada
+
+abracadabracad
+abracadabracad
