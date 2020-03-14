@@ -20,8 +20,8 @@ def get_max_count(i, arr):
 
 if __name__ == "__main__":
     T = int(input())
-    for _ in range(T):
+    for n in range(T):
         N = int(input())
         S = [int(s) for s in input().split(" ")]
         result = compute_h_index(S)
-        print(result)
+        print("Case #{}: {}".format(str(n), ' '.join(str(i) for i in result)))
