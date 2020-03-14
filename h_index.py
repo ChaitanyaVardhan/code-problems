@@ -1,3 +1,6 @@
+import time
+
+
 def compute_h_index(S):
     h_index_list = []
     for i in range(1, len(S)+1):
@@ -23,5 +26,8 @@ if __name__ == "__main__":
     for n in range(T):
         N = int(input())
         S = [int(s) for s in input().split(" ")]
+        start = time.time()
         result = compute_h_index(S)
-        print("Case #{}: {}".format(str(n), ' '.join(str(i) for i in result)))
+        end = time.time()
+        print("Case #{}: {}".format(str(n+1), ' '.join(str(i) for i in result)))
+        print(f"Time taken {end-start}")
