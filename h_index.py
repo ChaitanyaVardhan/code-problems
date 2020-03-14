@@ -1,3 +1,14 @@
+# Input: Line 1 gives the total number of test cases T in the file
+# T test cases follow. For each test case, line 1 gives the number of
+# research papers. Line 2 gives the citations for each paper separated
+# by a space
+# Sample input:
+#2
+#5
+#4 3 3 2 3
+#10
+#2 1 4 4 8 10 5 4 6 8
+
 import time
 
 
