@@ -1,3 +1,6 @@
+import time
+
+
 def compute_h_index(S):
     result = []
     for i in range(1, len(S)+1):
@@ -14,19 +17,14 @@ def compute_h_index_for_set(X):
             citation_arr[x-1] += 1
         else:
             citation_arr[len(X)-1] += 1
-    print(f"citation_arr = {citation_arr}")
             
     score_arr = [0] * len(X)
-    total_sum = 0
-    for j in range(len(X)):
-        total_sum += citation_arr[j]
     score_arr[len(X)-1] = citation_arr[len(X)-1]
     l = len(X) - 2
     while l >= 0:
-        score_arr[l] = citation_arr[l] + citation_arr[l+1]
+        score_arr[l] = citation_arr[l] + score_arr[l+1]
         l -= 1
 
-    print(f"score_arr = {score_arr}")
     h_index = 0
     for l in range(len(X)):
         if score_arr[l] >= l + 1:
@@ -41,5 +39,8 @@ if __name__ == "__main__":
         N = int(input())
         S = [None] * N
         S = [int(i) for i in input().split(" ")]
+        start = time.time()
         result = compute_h_index(S)
+        end = time.time()
         print("Case #{}: {}".format(t+1, ' '.join(str(h) for h in result)))
+        print(f"Time for input size {N}: {end-start}")
