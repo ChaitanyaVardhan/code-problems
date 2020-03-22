@@ -1,3 +1,6 @@
+from dedupe import dedupe
+
+
 def compute_integer_solutions(N, K):
     if N < 2:
         S = list()
@@ -29,5 +32,6 @@ if __name__ == "__main__":
     for _ in range(T):
         N, K = [int(s) for s in input().split(" ")]
         r = compute_integer_solutions(N, K)
-        print(r)
+        dedupe_r = dedupe(r)
+        print(dedupe_r)
     
