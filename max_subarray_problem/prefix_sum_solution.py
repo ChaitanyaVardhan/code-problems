@@ -31,10 +31,10 @@ def select_max_prefix_sum(S, a):
     max = prefix_sum_S[0]
     end_index = a
     for i in range(a+1, len(S)):
-        prefix_sum_S.append(prefix_sum_S[i-1] + S[i])
-        if prefix_sum_S[i] >= max:
-            max = prefix_sum_S[i]
-            end_index = i
+        prefix_sum_S.append(prefix_sum_S[i-1-a] + S[i])
+        if prefix_sum_S[i-a] >= max:
+            max = prefix_sum_S[i-a]
+            end_index = i-a
 
     print(prefix_sum_S)
     return dict(
@@ -50,6 +50,3 @@ if __name__ == "__main__":
         # Subarray S[a:b] with sum
         ans_dict = solve(S)
         print(f"Case #{i}: {ans_dict['sum']}, {ans_dict['a']}, {ans_dict['b']}")
-        
-        
-
