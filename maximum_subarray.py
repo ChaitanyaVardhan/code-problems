@@ -1,12 +1,17 @@
-def compute_max_subarr(S):
+def compute_max_subarr(S, indent=""):
+    print("{}Entering compute_max_subarr".format(indent))
+    indent += "|  "
+    
     if len(S) < 2:
+        indent = indent[0:-3]
+        print("{}Exiting compute_max_subarr".format(indent))        
         return S
 
     mid = len(S) // 2
     S1 = S[0:mid]
     S2 = S[mid:len(S)]
-    R1 = compute_max_subarr(S1)
-    R2 = compute_max_subarr(S2)
+    R1 = compute_max_subarr(S1, indent=indent)
+    R2 = compute_max_subarr(S2, indent=indent)
     
     R = []
     mid_s1 = mid_s2 = False
@@ -52,7 +57,9 @@ def compute_max_subarr(S):
                 R.extend(R1)
                 R.extend(S2[0:j])
                 R.extend(R2)
-    
+
+    indent = indent[0:-3]
+    print("{}Exiting compute_max_subarr".format(indent))
     return R
 
 
